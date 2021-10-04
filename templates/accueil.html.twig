@@ -1,7 +1,236 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Balances Balances toi !!{% endblock %}
 
 {% block body %}
 
+    <header>
+        <div class="clearfix header-content">
+            <h1>Balance balance balance toi !!</h1>
+            <h2>Vivre la NBA ! </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, placeat, officia, et, quas ipsam tempora alias libero quaerat beatae pariatur odit recusandae voluptas autem totam similique corrupti ex corporis distinctio.</p>
+            <a href="#" class="button yellow-bg">Watch our video</a>
+        </div>
+    </header>
+
+    <select name="saison" id="nba-saison">
+        <option value="2021-2022">-- Sélectionner la saison --</option>
+    </select>
+
+    <h2>Saison : <span id="saison-titre">2021-2022</span></h2>
+
+    <section class="sectionMatchEnCours">
+        <div class="accordion accordion-flush" id="accordionMatchEnCours">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Matchs en cours
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Date du match</h4>
+                                </div>
+                                <div class="col-2 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Équipe Domicile</h4>
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Score Dom</h4>
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4><h4>Score Vis</h4></h4>
+                                </div>
+                                <div class="col-2 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Équipe Visiteur</h4>
+                                </div>
+                            </div>
+                            <div class="container-score-en-cours">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sectionMatchEnAVenir">
+        <div class="accordion accordion-flush" id="accordionMatchAVenir">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        Matchs à venirs
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>date du match</h4>
+                                </div>
+                                <div class="col-2 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Équipe Domicile</h4>
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Score Dom</h4>
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4><h4>Score Vis</h4></h4>
+                                </div>
+                                <div class="col-2 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Équipe Visiteur</h4>
+                                </div>
+                            </div>
+                            <div class="container-score-a-venir">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sectionMatchTermines">
+        <div class="accordion accordion-flush" id="accordionMatchTermines">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        Matchs Terminés
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Date du match</h4>
+                                </div>
+                                <div class="col-2 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Équipe Domicile</h4>
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Score Dom</h4>
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+
+                                </div>
+                                <div class="col-1 align-self-center justify-content-center enTeteTableau ">
+                                    <h4><h4>Score Vis</h4></h4>
+                                </div>
+                                <div class="col-2 align-self-center justify-content-center enTeteTableau ">
+                                    <h4>Équipe Visiteur</h4>
+                                </div>
+                            </div>
+                            <div class="container-score-termines">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : 'https://www.thesportsdb.com/api/v1/json/1/search_all_seasons.php?id=4387',
+                type : 'GET',
+                dataType : 'json',
+                success : function(data){
+                    let arraySaison = [];
+                    $.map(data.seasons, function(saison) {
+                        arraySaison.push(saison.strSeason);
+                    });
+                    arraySaison.reverse();
+                    $.map(arraySaison, function(saison) {
+                        $('#nba-saison').append('<option value="'+saison+'">'+saison+'</option>');
+                    });
+                },
+            });
+
+                $.ajax({
+                url : 'https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=4387&s=2021-2022',
+                type : 'GET',
+                dataType : 'json',
+                success : function(data){
+                    affichageData(data)
+                }
+            });
+        });
+
+        $('#nba-saison').on('change', function(){
+            let saison = $('#nba-saison option:selected').val();
+            $('#saison-titre').html(saison);
+            $.ajax({
+                url: 'https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=4387&s='+ saison,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    affichageData(data)
+                }
+            });
+        })
+
+        function affichageData(data){
+            $('.container-score-en-cours').empty();
+            $('.container-score-a-venir').empty();
+            $('.container-score-termines').empty();
+
+            $.map(data.events, function(team) {
+                let d = new Date();
+                let dateAuj = d.getFullYear() + '-' +
+                    ((d.getMonth()+1) < 10 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1)) +
+                    '-' +
+                    (d.getDate() < 10 ? "0" + d.getDate() : d.getDate());
+                let html = '';
+                html += '<div class="row justify-content-center">';
+                html +=     '<div class="col-1 align-self-center justify-content-center cadre statutCadre ">';
+                html +=         team.dateEvent;
+                html +=     '</div>';
+                html +=     '<div class="col-2 align-self-center justify-content-center cadre teamCadre ">';
+                html +=         '<h3>'+team.strHomeTeam+'</h3>';
+                html +=     '</div>';
+                html +=     '<div class="col-1 align-self-center justify-content-center cadre scoreCadre ">';
+                html +=         team.intHomeScore;
+                html +=     '</div>';
+                html +=     '<div class="col-1 align-self-center justify-content-center cadre unionContainer ">';
+                html +=         '-';
+                html +=     '</div>';
+                html +=     '<div class="col-1 align-self-center justify-content-center cadre scoreCadre ">';
+                html +=         team.intAwayScore;
+                html +=     '</div>';
+                html +=     '<div class="col-2 align-self-center justify-content-center cadre teamCadre ">';
+                html +=         '<h3>'+team.strAwayTeam+'</h3>';
+                html +=     '</div>';
+                html += '</div>';
+
+                if(team.dateEvent === dateAuj){
+                    $('.container-score-en-cours').append(html);
+                }
+
+                if(team.dateEvent > dateAuj){
+                    $('.container-score-a-venir').append(html);
+                }
+
+                if(team.dateEvent < dateAuj){
+                    $('.container-score-termines').append(html);
+                }
+
+            });
+        }
+    </script>
 {% endblock %}

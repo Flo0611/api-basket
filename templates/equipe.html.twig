@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <div class="container p-5">
+        <div id="container-equipe" class="row col-md-12 col-sm-4 justify-content-center">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : 'https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4387',
+                type : 'GET',
+                dataType : 'json',
+                success : function(data){
+                    console.log(data.teams);
+                    $.each(data.teams, function(index, team) {
+                        console.log(team);
+                        let html = '';
+                        html += '<div class="card m-4" style="width: 18rem;">';
+                        html +=     '<img src="'+team.strStadiumThumb+'" class="card-img-top" alt="...">';
+                        html +=     '<div class="card-body">';
+                        html +=         '<h5 class="card-title">'+team.strTeam+'</h5>';
+                        html +=         '<p class="card-text">Création du club : <b>'+team.intFormedYear+'</b></p>';
+                        html +=         '<p class="card-text">Emplacement du stade : <b>'+team.strStadiumLocation+'</b></p>';
+                        html +=         '<p class="card-text">Capacité du stade : <b>'+team.intStadiumCapacity+'</b></p>';
+                        html +=         '<a href="#" class="btn btn-primary">Voir plus</a>';
+                        html +=     '</div>'
+                        html += '</div>'
+                        $('#container-equipe').append(html);
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}
