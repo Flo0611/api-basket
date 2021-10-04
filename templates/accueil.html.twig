@@ -202,7 +202,7 @@
                 html +=         team.dateEvent;
                 html +=     '</div>';
                 html +=     '<div class="col-2 align-self-center justify-content-center cadre teamCadre ">';
-                html +=         '<h3>'+team.strHomeTeam+'</h3>';
+                html +=         '<h3 class="stats-equipe" data-equipe="'+team.strHomeTeam+'">'+team.strHomeTeam+'</h3>';
                 html +=     '</div>';
                 html +=     '<div class="col-1 align-self-center justify-content-center cadre scoreCadre ">';
                 html +=         team.intHomeScore;
@@ -214,7 +214,7 @@
                 html +=         team.intAwayScore;
                 html +=     '</div>';
                 html +=     '<div class="col-2 align-self-center justify-content-center cadre teamCadre ">';
-                html +=         '<h3>'+team.strAwayTeam+'</h3>';
+                html +=         '<h3 class="stats-equipe" data-equipe="'+team.strAwayTeam+'">'+team.strAwayTeam+'</h3>';
                 html +=     '</div>';
                 html += '</div>';
 
@@ -232,5 +232,64 @@
 
             });
         }
+
+        function statsEquipe(equipeName, saison) {
+            let winDom = 0;
+            let winExt = 0;
+            let defaite = 0;
+            let matchNul = 0;
+            let nbMatch = 0;
+            $.ajax({
+                url: 'https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=4387&s='+saison,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $.map(data.events, function(team) {
+                        if (team.intHomeScore !== null || team.intAwayScore !== null){
+                            if (equipeName === team.strHomeTeam){
+                                nbMatch++;
+                                if (parseInt(team.intHomeScore) > parseInt(team.intAwayScore)){
+                                    winDom++;
+                                }else if(parseInt(team.intHomeScore) === parseInt(team.intAwayScore)){
+                                    matchNul++;
+                                }else{
+                                    defaite++;
+                                }
+                            }else if(equipeName === team.strAwayTeam){
+                                nbMatch++;
+                                if (parseInt(team.intAwayScore) > parseInt(team.intHomeScore)){
+                                    winExt++;
+                                }else if(parseInt(team.intHomeScore) === parseInt(team.intAwayScore)){
+                                    matchNul++;
+                                }else{
+                                    defaite++;
+                                }
+                            }
+                        }
+                    });
+                    let pourcentageWinDom = 0;
+                    let pourcentageWinExt = 0;
+                    let pourcentageDefaite = 0;
+                    let pourcentageNul = 0;
+                    let pourcentageWin = 0;
+                    pourcentageWinDom = ((winDom/nbMatch)*100).toFixed(2);
+                    pourcentageWinExt = ((winExt/nbMatch)*100).toFixed(2);
+                    pourcentageDefaite = ((defaite/nbMatch)*100).toFixed(2);
+                    pourcentageNul = ((matchNul/nbMatch)*100).toFixed(2);
+                    pourcentageWin = (((winDom+winExt)/nbMatch)*100).toFixed(2);
+                    console.log("pourcentageWinDom : "+pourcentageWinDom)
+                    console.log("pourcentageWinExt : " +pourcentageWinExt)
+                    console.log("pourcentageDefaite : " +pourcentageDefaite)
+                    console.log("pourcentageNul : " +pourcentageNul)
+                    console.log("pourcentageWin : " +pourcentageWin)
+                }
+            });
+        }
+
+        $(document).on('click', '.stats-equipe', function(){
+            let equipe = $(this).data('equipe');
+            let saison = $('#nba-saison option:selected').val();
+            statsEquipe(equipe, saison);
+        })
     </script>
 {% endblock %}
